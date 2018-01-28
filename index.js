@@ -56,6 +56,7 @@ Favicons.prototype.build = function build() {
   return new Promise(function(resolve, reject) {
     var config = merge(defaultConfig, self.config);
     var filepath = path.join(self.inputPaths[0], self.imagePath);
+    favicons.config.html.appleIcon["meta[name='apple-mobile-web-app-status-bar-style']"] = "<meta name='apple-mobile-web-app-status-bar-style' content='black'>";
     favicons(filepath, config, function(error, response) {
       if (error) {
         reject(new Error(error.name + ': ' + error.message));
